@@ -18,6 +18,6 @@ class UserProfile(models.Model):
 
     profile_pic_url = models.CharField(max_length=255, default=DEFAULT_PROFILE_PIC_URL)
     bio = models.CharField(max_length=255, blank=True)
-    user = models.ForeignKey(User, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
 
 
