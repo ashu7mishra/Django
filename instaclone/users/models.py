@@ -8,8 +8,8 @@ class User(models.Model):
     phone_number = models.CharField(max_length=10, unique=True)
     is_active = models.BooleanField(default=False)
 
-    created_on = models.DateTimeField(auto_created=True)
-    updated_on = models.DateTimeField(auto_created=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now_add=True)
 
 
 class UserProfile(models.Model):
