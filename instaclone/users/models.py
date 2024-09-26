@@ -11,13 +11,20 @@ class User(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        abstract = True
 
-class UserProfile(models.Model):
 
-    DEFAULT_PROFILE_PIC_URL = "https://my_website.com/placeholder.png"
+class UserProfile(TimeStamp):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=False,
+                                related_name='profile')
 
-    profile_pic_url = models.CharField(max_length=255, default=DEFAULT_PROFILE_PIC_URL)
+    profile_pic_url = models.ImageField(upload_to='profile_pic/', blank=True)
+
     bio = models.CharField(max_length=255, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    is_verified = models.BooleanField(default=True)
+
+    class Meta:
+        unique_together = ('from_user', 'to_user')
 
 
