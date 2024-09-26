@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            Instaclone
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <div style="height:40px; background-color:lightblue; text-align:center;">This is the header</div>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <div style="height:40px; position:absolute; bottom:0; width:100%; background-color:lightyellow; text-align:center;">
+        This is the footer
+    </div>
+
+</body>
+</html>
