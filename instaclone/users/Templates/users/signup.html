@@ -13,7 +13,14 @@
       <img src="https://i.imgur.com/zqpwkLQ.png" />
     </div>
     <div class="l-part">
-      This is my content
+      <form action="/users/signup/" method="post">
+        {% for field in form.visible_fields %}
+
+          {{ field.label }}
+          {{ field }}
+
+        {% endfor %}
+      </form>
     </div>
   </div>
 </div>
