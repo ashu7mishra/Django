@@ -31,3 +31,6 @@ class Request(models.Model):
 
     def __str__(self):
         return f"Request to {self.server.ip_address}: {self.server.port}"
+
+    def __init__(self, request_id):
+        self.request_id = request_id

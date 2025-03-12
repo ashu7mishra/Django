@@ -28,6 +28,8 @@ class LoadBalancerSingleton:
         LoadBalancerSingleton._is_instance.servers.remove(server)
 
     def distribute_request(self, request):
+        if not LoadBalancerSingleton._is_instance.servers:
+            return "No servers available"
         selected_server = LoadBalancerSingleton._is_instance.strategy.select_server(LoadBalancerSingleton._is_instance.servers)
-        selected_server.handle_
+        selected_server.handle_request(request)
 
