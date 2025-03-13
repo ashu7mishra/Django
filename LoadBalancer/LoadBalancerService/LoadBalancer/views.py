@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views import View
-from models import Request, Server
-from services.loadBalancer import LoadBalancerSingleton
+from .models import Request, Server
+from .services.loadBalancer import LoadBalancerSingleton
 
 
 class RegisterServerView(View):
