@@ -5,7 +5,7 @@ from models import Request, Server
 from services.loadBalancer import LoadBalancerSingleton
 
 
-class RegisterServiceView(View):
+class RegisterServerView(View):
     def post(self, request):
         ip_address = request.POST.get("ip_address")
         port = request.POST.get('port')
@@ -15,4 +15,9 @@ class RegisterServiceView(View):
 
 class DistributeRequestView(View):
     def get(self, request):
-        load_balancer =
+        load_balancer = LoadBalancerSingleton()
+        server = load_balancer.distribute_request(request)
+        if server:
+            request.objects.create(server=server)
+            return JsonResponse({"message": "Request sent to server", "server": str(server)})
+        return JsonResponse({"message": "No available servers"}, status=100)

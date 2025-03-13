@@ -8,9 +8,6 @@ class LoadBalancerSingleton:
     _is_instance = None
     _lock = threading.Lock()
 
-    def __init__(self):
-        self.strategy = None
-
     def __new__(cls, strategy = 'round_robin'):
         if cls._is_instance is None:
             with cls._lock:
@@ -32,4 +29,5 @@ class LoadBalancerSingleton:
             return "No servers available"
         selected_server = LoadBalancerSingleton._is_instance.strategy.select_server(LoadBalancerSingleton._is_instance.servers)
         selected_server.handle_request(request)
+        return selected_server
 
