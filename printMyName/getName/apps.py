@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class PrintnameConfig(AppConfig):
+class GetnameConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "printName"
+    name = "getName"
