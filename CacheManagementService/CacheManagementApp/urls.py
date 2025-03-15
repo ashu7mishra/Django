@@ -3,5 +3,5 @@ from .views import CacheView
 
 
 urlpattern = [
-    # path('', CacheView.as_view(), name='cache'),
+    path('', CacheView.as_view(), name='cache'),
 ]
