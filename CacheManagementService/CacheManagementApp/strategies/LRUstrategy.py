@@ -17,5 +17,3 @@ class LRUstrategy(BaseStrategy):
             if len(cache) >= capacity:
                 cache.popitem(last=False)
             cache[key] = value
-
-
