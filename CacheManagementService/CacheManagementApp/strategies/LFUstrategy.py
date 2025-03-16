@@ -23,4 +23,4 @@ class LFUstrategy(BaseStrategy):
                 cache.pop(least_frequent, None)
                 self.frequency.pop(least_frequent, None)
             cache[key] = value
-            self.frequency[key] += 1
+            self.frequency[key] = 1
