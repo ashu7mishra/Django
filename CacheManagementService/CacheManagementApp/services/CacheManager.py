@@ -21,11 +21,11 @@ class CacheManager:
         return self.strategy.get(self.cache, key)
 
     def put(self, key, value):
-        self.strategy.put(self.cache. key, value, self.capacity)
+        self.strategy.put(self.cache, key, value, self.capacity)
 
     def set_strategy(self, strategy):
         try:
             self.strategy = LRUstrategy() if strategy == 'LRU' else LFUstrategy()
-            print(f"strategy set to {strategy}")
+            print(f"strategy set to {strategy['strategy']}")
         except Exception as e:
-            print(f"No such strategy ({strategy}) found", e)
+            print(f"No such strategy ({strategy['strategy']}) found", e)
