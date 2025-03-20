@@ -1,14 +1,16 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
-class RegisterView:
+class RegisterView(APIView):
     pass
 
 
-class LoginView:
+class LoginView(APIView):
     pass
 
 
-class UserProfileView:
+class UserProfileView(APIView):
     pass
 

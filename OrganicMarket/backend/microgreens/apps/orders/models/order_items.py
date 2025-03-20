@@ -1,5 +1,5 @@
 from django.db import models
-from  DjangoProjects.OrganicMarket.backend.microgreens.apps.products.models import Product
+from ...products.models import Product
 from .order import Order
 
 
