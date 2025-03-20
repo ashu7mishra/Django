@@ -1,7 +1,6 @@
 from django.db import models
-
-from DjangoProjects.OrganicMarket.backend.microgreens.apps.products.models import Product
-from order import Order
+from  DjangoProjects.OrganicMarket.backend.microgreens.apps.products.models import Product
+from .order import Order
 
 
 class OrderItems(models.Model):
