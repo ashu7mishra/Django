@@ -6,5 +6,7 @@ from .models import CustomerUser
 
 
 @admin.register(CustomerUser)
-class UserCustomer(admin.ModelAdmin):
+class CustomerUserAdmin(admin.ModelAdmin):
     fields = ["username", "phone", "address"]
+    list_display = ["username", "phone"]
+    search_fields = ["username", "phone", "address"]
