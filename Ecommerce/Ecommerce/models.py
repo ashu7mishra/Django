@@ -5,9 +5,7 @@ class User(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     password = models.CharField(max_length=255)
-    phone_number = models.DecimalField(max_digits=10)
-    # shipping_address = models.TextField()
-    # billing_address = models.TextField()
+    phone_number = models.DecimalField(max_digits=10, decimal_places=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -24,3 +22,11 @@ class Address(models.Model):
 
     class Meta:
         abstract = True
+
+
+class ShippingAddress(Address):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="shipping_address"
+    )
