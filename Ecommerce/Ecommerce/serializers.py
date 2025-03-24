@@ -9,6 +9,13 @@ class UserSerializer(ModelSerializer):
         fields = "__all__"
 
 
+class CreateShippingAddressSerializer(ModelSerializer):
+
+    class Meta:
+        model = ShippingAddress
+        fields = ["street", "city", "state", "zip_code", "country"]
+
+
 class ShippingAddressSerializer(ModelSerializer):
 
     class Meta:
