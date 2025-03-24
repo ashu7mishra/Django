@@ -21,3 +21,11 @@ class ShippingAddressSerializer(ModelSerializer):
     class Meta:
         model = ShippingAddress
         fields = "__all__"
+
+
+class UserSerializer(ModelSerializer):
+    shipping_address = ShippingAddressSerializer(many=True)
+
+    class Meta:
+        model = User
+        fields = "__all__"
