@@ -14,7 +14,7 @@ class UserListCreateAPIView(ListCreateAPIView):
 
 
 class UserRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.all().prefetch_related("shipping_address")
     serializer_class = UserSerializer
 
 
