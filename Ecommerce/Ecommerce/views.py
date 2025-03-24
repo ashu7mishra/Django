@@ -1,6 +1,7 @@
-from requests import Response
+from rest_framework.response import Response
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.generics import GenericAPIView
+from rest_framework.views import APIView
 from .models import User, Address, ShippingAddress
 from .serializers import UserSerializer, ShippingAddressSerializer, CreateShippingAddressSerializer
 from django.shortcuts import get_object_or_404
@@ -19,9 +20,10 @@ class UserRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
 
 class ShippingAddressListCreateAPIView(GenericAPIView):
     serializer_class = CreateShippingAddressSerializer
+
     def post(self, request, user_id):
         user = get_object_or_404(User, pk=user_id)
-        serialized = CreateShippingAddressSerializer(data=request.body)
+        serialized = CreateShippingAddressSerializer(data=request.data)
         if not serialized.is_valid():
             return Response(serialized.errors, status=400)
 
