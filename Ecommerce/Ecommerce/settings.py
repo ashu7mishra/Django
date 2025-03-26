@@ -51,7 +51,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "Ecommerce.simple_middleware.simple_middleware"
+    "Ecommerce.simple_middleware.simple_middleware",
+    "Ecommerce.simple_middleware.another_middleware",
 ]
 
 ROOT_URLCONF = "Ecommerce.urls"

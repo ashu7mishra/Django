@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import UserListCreateAPIView, UserRetrieveUpdateDestroyAPIView, ShippingAddressListCreateAPIView
+from .views import UserListCreateAPIView, UserRetrieveUpdateDestroyAPIView, ShippingAddressListCreateAPIView, health_check
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = [
+    path("", health_check),
     path("admin/", admin.site.urls),
     path("user/", UserListCreateAPIView.as_view()),
     path("user/<int:pk>", UserRetrieveUpdateDestroyAPIView.as_view()),

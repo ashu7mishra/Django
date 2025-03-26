@@ -5,7 +5,12 @@ from rest_framework.views import APIView
 from .models import User, Address, ShippingAddress
 from .serializers import UserSerializer, ShippingAddressSerializer, CreateShippingAddressSerializer
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
+
+def health_check(request):
+    print("Checking health...")
+    return HttpResponse("health is good")
 
 
 class UserListCreateAPIView(ListCreateAPIView):
