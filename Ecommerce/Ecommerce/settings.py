@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "rest_framework_simplejwt",
     "debug_toolbar",
     "Ecommerce",
 ]
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "Ecommerce.simple_middleware.simple_middleware",
     "Ecommerce.simple_middleware.another_middleware",
+    "Ecommerce.simple_class_middlewares.SimpleClassMiddleware",
 ]
 
 ROOT_URLCONF = "Ecommerce.urls"
@@ -129,7 +131,11 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 INTERNAL_IPS = [
-    # ...
     "127.0.0.1",
-    # ...
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
