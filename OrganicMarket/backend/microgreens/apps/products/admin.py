@@ -5,6 +5,7 @@ from .models import Category, Product
 # admin.site.register(Category)
 # admin.site.register(Product)
 
+
 @admin.register(Category)
 class UserCategory(admin.ModelAdmin):
     fields = ["name"]

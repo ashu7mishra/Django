@@ -3,7 +3,6 @@ from collections import Counter
 
 
 class LFUstrategy(BaseStrategy):
-
     def __init__(self):
         self.frequency = Counter()
 

@@ -6,7 +6,7 @@ class LeastConnections(LoadBalancingStrategy):
         self.servers = servers
 
     def select_server(self):
-        min_connections = float('inf')
+        min_connections = float("inf")
         selected_server = None
 
         for server in self.servers:

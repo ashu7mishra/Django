@@ -12,7 +12,7 @@ class User(models.Model):
         "ShippingAddress",
         on_delete=models.DO_NOTHING,
         null=True,
-        related_query_name="user_info"
+        related_query_name="user_info",
     )
 
     def __str__(self):
@@ -32,7 +32,5 @@ class Address(models.Model):
 
 class ShippingAddress(Address):
     user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name="shipping_address"
+        User, on_delete=models.CASCADE, related_name="shipping_address"
     )

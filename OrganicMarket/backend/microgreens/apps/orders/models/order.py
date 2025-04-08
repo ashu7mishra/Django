@@ -5,14 +5,14 @@ User = get_user_model()
 
 
 class Order(models.Model):
-    PENDING = 'Pending'
-    COMPLETED = 'Completed'
-    CANCELED = 'Canceled'
+    PENDING = "Pending"
+    COMPLETED = "Completed"
+    CANCELED = "Canceled"
 
     STATUS_CHOICES = [
-        (PENDING, 'Pending'),
-        (COMPLETED, 'Completed'),
-        (CANCELED, 'Canceled'),
+        (PENDING, "Pending"),
+        (COMPLETED, "Completed"),
+        (CANCELED, "Canceled"),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)

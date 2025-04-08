@@ -2,7 +2,6 @@ from .baseStrategy import BaseStrategy
 
 
 class LRUstrategy(BaseStrategy):
-
     def get(self, cache, key):
         if key in cache:
             cache.move_to_end(key)

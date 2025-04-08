@@ -1,5 +1,4 @@
 def bingo(fn):
-
     def whatever():
         print("before")
         fn()
@@ -7,8 +6,10 @@ def bingo(fn):
 
     return whatever
 
+
 @bingo
 def say_hello():
     print("hello from scaler")
+
 
 say_hello()

@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class BaseStrategy(ABC):
-
     @abstractmethod
     def get(self, cache, key):
         raise NotImplementedError

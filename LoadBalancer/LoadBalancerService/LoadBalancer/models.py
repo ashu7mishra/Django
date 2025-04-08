@@ -15,18 +15,24 @@ class Server(models.Model):
         with Lock():
             self.active_connections += 1
 
-        print(f"server with ip_address {self.ip_address} and port {self.port} "
-              f"is processing request with {request.request_id} (active connections: {self.active_connections})")
+        print(
+            f"server with ip_address {self.ip_address} and port {self.port} "
+            f"is processing request with {request.request_id} (active connections: {self.active_connections})"
+        )
 
         with Lock():
             self.active_connections -= 1
 
-        print(f"server with ip_address {self.ip_address} and port {self.port} "
-              f"has processed request with {request.request_id} (active connections: {self.active_connections})")
+        print(
+            f"server with ip_address {self.ip_address} and port {self.port} "
+            f"has processed request with {request.request_id} (active connections: {self.active_connections})"
+        )
 
 
 class Request(models.Model):
-    server = models.ForeignKey(Server, on_delete=models.CASCADE, related_name="requests")
+    server = models.ForeignKey(
+        Server, on_delete=models.CASCADE, related_name="requests"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

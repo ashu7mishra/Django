@@ -9,4 +9,3 @@ class ProductListView(APIView):
 
 class ProductDetailsView(APIView):
     pass
-

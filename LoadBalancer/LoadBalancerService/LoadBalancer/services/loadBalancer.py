@@ -1,4 +1,5 @@
 import threading
+
 # from loadBalancerStrategies.roundRobin import RoundRobinStrategy
 # from loadBalancerStrategies.leastConnections import LeastConnections
 from ..models import Server
@@ -8,7 +9,7 @@ class LoadBalancerSingleton:
     _is_instance = None
     _lock = threading.Lock()
 
-    def __new__(cls, strategy = 'round_robin'):
+    def __new__(cls, strategy="round_robin"):
         if cls._is_instance is None:
             with cls._lock:
                 if cls._is_instance is None:
@@ -27,7 +28,8 @@ class LoadBalancerSingleton:
     def distribute_request(self, request):
         if not LoadBalancerSingleton._is_instance.servers:
             return "No servers available"
-        selected_server = LoadBalancerSingleton._is_instance.strategy.select_server(LoadBalancerSingleton._is_instance.servers)
+        selected_server = LoadBalancerSingleton._is_instance.strategy.select_server(
+            LoadBalancerSingleton._is_instance.servers
+        )
         selected_server.handle_request(request)
         return selected_server
-

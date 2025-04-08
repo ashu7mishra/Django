@@ -13,4 +13,3 @@ class LoginView(APIView):
 
 class UserProfileView(APIView):
     pass
-

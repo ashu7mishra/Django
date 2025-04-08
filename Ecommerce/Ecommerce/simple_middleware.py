@@ -1,5 +1,4 @@
 def simple_middleware(get_response):
-
     def middleware(request):
 
         # forward going
@@ -15,7 +14,6 @@ def simple_middleware(get_response):
 
 
 def another_middleware(get_response):
-
     def middleware(request):
 
         # forward going
