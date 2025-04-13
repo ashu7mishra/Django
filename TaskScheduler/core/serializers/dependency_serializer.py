@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models import Dependency
+from ..models import Dependency
 
 
 class DependencySerializer(serializers.ModelSerializer):

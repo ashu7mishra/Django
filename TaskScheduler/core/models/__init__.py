@@ -1,2 +1,2 @@
-from task import Task
-from dependency import Dependency
+from .task import Task
+from .dependency import Dependency
